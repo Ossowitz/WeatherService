@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Информация о погоде</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f0f8ff;
+                color: #333;
+                margin: 0;
+                padding: 20px;
+            }
+            h1 {
+                text-align: center;
+                color: #0077cc;
+            }
+            .weather-info {
+                text-align: center;
+                background-color: #fff;
+                border-radius: 10px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                margin: 20px auto;
+                width: 300px;
+            }
+            .error {
+                color: red;
+                text-align: center;
+            }
+        </style>
+    </head>
+<body>
+
+    <h1>Информация о погоде в вашем городе</h1>
+
+    <div class="weather-info" th:if="${city}">
+        <h2 th:text="'Погода в ' + ${city}"></h2>
+        <p>Температура: <span th:text="${temperature}"></span>°C</p>
+        <p>Условия: <span th:text="${condition}"></span></p>
+    </div>
+
+    <div class="error" th:if="${error}">
+        <p th:text="${error}"></p>
+    </div>
+
+</body>
+</html>
